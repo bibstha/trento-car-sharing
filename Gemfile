@@ -15,11 +15,9 @@ gem 'simple_form'
 gem 'slim'
 gem 'thin'
 group :development do
-  gem 'better_errors'
+  # gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
-  gem 'haml-rails'
-  gem 'haml2slim'
-  gem 'html2haml'
+  gem 'slim-rails'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
