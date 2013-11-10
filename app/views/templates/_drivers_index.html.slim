@@ -1,6 +1,29 @@
+h1 Step 2 - Add information of everyone who drives
 div ng-init="init()"
-  p Drivers Index
-  a.btn.btn-default href="" ng-click="new()" Add driver
-  div ng-repeat="driver in drivers"
-    | {{driver.name }}
-    button.btn ng-click="edit(driver)" Edit
+  div ng-show="drivers.length == 0"
+    p.lead 
+      | Click 
+      a.btn.btn-default> href="" ng-click="new()" Add driver
+      | to get started.
+  div ng-show="drivers.length > 0"
+    p.lead
+      | You have added {{drivers.length}} driver(s) information listend below. Click on 
+      strong> Edit
+      ' button to make changes. Or
+      button.btn.btn-default> ng-click="new()" Add new driver
+      | .
+    
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th 
+      tbody
+        tr ng-repeat="driver in drivers"
+          td() {{ driver.name }}
+          td
+            button.btn ng-click="edit(driver)" Edit
+
+    button.btn.btn-success Go to Step 3
+
+    

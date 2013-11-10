@@ -10,10 +10,11 @@ html ng-app='mainApp'
     = javascript_include_tag "application"
     = csrf_meta_tags
   body
-    / header
-    /   nav.navbar.navbar-default.navbar-fixed-top
-    /     .container
-    /       .navbar-header
+    header
+      nav.navbar.navbar-default
+        .container
+          .navbar-header
+            a.navbar-brand Trentino 2013 Car Rental Request Forms
     /         button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
     /           span.sr-only Toggle navigation
     /           span.icon-bar
@@ -25,14 +26,10 @@ html ng-app='mainApp'
     .container
       .row  
         div.col-md-3 role="complementary"
-          div ng-controller="SidebarCtrl"
+          div ng-controller="SidebarsCtrl" ng-init="init()"
             ul
-              li 
-                a href="" ng-click="step1()" Step1
-              li
-                a href="" ng-click="step1()" Step2
-              li
-                a href="" ng-click="step3()" Step3
+              li ng-repeat="link in links"
+                a href="" ng-click="click(link)" {{link.name}}
         div.col-md-9 role="main"
           = render partial: 'layouts/messages'
           = yield

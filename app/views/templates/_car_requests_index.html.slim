@@ -1,0 +1,6 @@
+div ng-init="init()"
+  p Drivers Index
+  a.btn.btn-default href="" ng-click="new()" Add driver
+  div ng-repeat="driver in drivers"
+    | {{driver.name }}
+    button.btn ng-click="edit(driver)" Edit

@@ -24,7 +24,7 @@ class Api::DriversController < ApplicationController
 
   private
   def params_driver
-    params[:driver].permit(:name, :delegation, :nationality, :dob, :place_of_birth,
+    params[:driver].permit(:type, :name, :delegation, :nationality, :dob, :place_of_birth,
       :street, :city, :country, :phone, :email, :phone_in_italy, 
       :arrival_date, :departure_date
     )

@@ -1,61 +1,82 @@
+h1 Step 2 - Driver information entry
 div ng-init="init()"
-  p Drivers Create Update
-  
-  h1 Apply for accrediation for the Universiade car service
+  p.lead In order to drive the cars, every driver must become accredited by filling out the forms below and applying for accreditation. A car will not be given to those who have not completed the necessary forms for accreditation.
 
-  form role="form" ng-submit="submit()"
+  form.css-form.form-horizontal role="form" ng-submit="submit()" name="driver_form"
     .form-group
-      label
-        input.form-control type="radio" ng-model="driver.type" value="head"
-        | Head driver
-      label
-        input.form-control type="radio" ng-model="driver.type" value="additiona"
-        | Additional driver
+      label.control-label.col-sm-3 Driver type
+      .col-sm-9
+        label.radio-inline
+          input type="radio" ng-model="driver.type" value="head"
+          | Head driver
+        label.radio-inline
+          input type="radio" ng-model="driver.type" value="additional"
+          | Additional driver
+        p.help-block TODO who is a head driver, who is additional driver?
 
     .form-group
-      label for="name" Fullname
-      input.form-control type="text" ng-model="driver.name" name="name"
+      label.control-label.col-sm-3 for="name" Fullname
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.name" name="name" ng-required="true"
+    / .form-group
+    /   label.control-label.col-sm-3 for="delegation" Delegation
+    /   .col-sm-9
+    /     input.form-control type="text" ng-model="driver.delegation" name="delegation"
     .form-group
-      label for="delegation" Delegation
-      input.form-control type="text" ng-model="driver.delegation" name="delegation"
+      label.control-label.col-sm-3 for="nationality" Nationality
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.nationality" name="nationality"
     .form-group
-      label for="nationality" Nationality
-      input.form-control type="text" ng-model="driver.nationality" name="nationality"
+      label.control-label.col-sm-3 for="dob" Date of birth
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.dob" name="dob"
     .form-group
-      label for="dob" Date of birth
-      input.form-control type="text" ng-model="driver.dob" name="dob"
-    .form-group
-      label for="place_of_birth" Place of birth (City, Country)
-      input.form-control type="text" ng-model="driver.place_of_birth" name="place_of_birth"
+      label.control-label.col-sm-3 for="place_of_birth" 
+        | Place of birth 
+        br/
+        | (City, Country)
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.place_of_birth" name="place_of_birth"
 
-    p Address
+    .col-sm-9.col-sm-offset-3
+      h4 Address information
+      p TODO is this current residential address?
     .form-group
-      label for="street" Street
-      input.form-control type="text" ng-model="driver.street" name="street"
+      label.control-label.col-sm-3 for="street" Street
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.street" name="street"
     .form-group
-      label for="city" City
-      input.form-control type="text" ng-model="driver.city" name="city"
+      label.control-label.col-sm-3 for="city" City
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.city" name="city"
     .form-group
-      label for="country" Country
-      input.form-control type="text" ng-model="driver.country" name="country"
-    p Contact
+      label.control-label.col-sm-3 for="country" Country
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.country" name="country"
+    .col-sm-9.col-sm-offset-3
+      h4 Contact
     .form-group
-      label for="phone" Phone
-      input.form-control type="text" ng-model="driver.phone" name="phone"
+      label.control-label.col-sm-3 for="phone" Phone
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.phone" name="phone"
     .form-group
-      label for="email" Email
-      input.form-control type="text" ng-model="driver.email" name="email"
-    p Contact in Italy
+      label.control-label.col-sm-3 for="email" Email
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.email" name="email"
     .form-group
-      label for="phone_in_italy" Phone in Italy
-      input.form-control type="text" ng-model="driver.phone_in_italy" name="phone_in_italy"
-    p Arrival and Departure dates
+      label.control-label.col-sm-3 for="phone_in_italy" Phone in Italy
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.phone_in_italy" name="phone_in_italy"
+    .col-sm-9.col-sm-offset-3
+      h4 Arrival and Departure dates
     .form-group
-      label for="arrival_date" Arrival date
-      input.form-control type="text" ng-model="driver.arrival_date" name="arrival_date"
+      label.control-label.col-sm-3 for="arrival_date" Arrival date
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.arrival_date" name="arrival_date"
     .form-group
-      label for="departure_date" Departure date
-      input.form-control type="text" ng-model="driver.departure_date" name="departure_date"
+      label.control-label.col-sm-3 for="departure_date" Departure date
+      .col-sm-9
+        input.form-control type="text" ng-model="driver.departure_date" name="departure_date"
     p Required Files
     p Copy of passport
     p Copy of national drivers licence
@@ -63,4 +84,5 @@ div ng-init="init()"
     / p TODO confirm about credit card details
 
     input.btn.btn-success type="submit" value="Save"
+
 

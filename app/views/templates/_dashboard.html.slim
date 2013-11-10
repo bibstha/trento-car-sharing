@@ -1,56 +1,77 @@
-p Hello World
-form role="form" ng-init="init()" ng-submit="submit()"
+h1 Step1 - Your team information
+p.lead
+  | All parts of the forms have to be filled in and completed no later than the 
+  strong 18th November 2013
+form.css-form.form-horizontal role="form" ng-init="init()" ng-submit="submit()" name="form"
+  .form-group ng-class="{'has-error': form.name.$invalid, 'has-success': !form.name.$invalid}"
+    label.control-label.col-sm-3 for="name" Delgation of
+    .col-sm-9
+      input.form-control name="name" ng-model="team.name" placeholder="Delegation of" required=""
+      p.help-block The name of your team. Eg: Australia
+    
+  .form-group ng-class="{'has-error': form.participants_count.$invalid, 'has-success': !form.participants_count.$invalid}"
+    label.control-label.col-sm-3 for="participants_count" Total participants
+    .col-sm-9
+      input.form-control name="participants_count" ng-model="team.participants_count" required=""
+      p.help-block Eg: 10 or 10-50
+      p Number of vehicles provided to you depends upon total participants:
+      table.table.table-striped
+        thead
+          tr
+            th Number of participants
+            th Number of dedicated vehicles
+        tbody
+          tr
+            td from 1 to 25
+            td 1
+          tr
+            td 26 to 100
+            td 2
+          tr
+            td +100
+            td 3
+
+  h4 Special requirements
+  p Note: We will try our best to match the cars according to your requirements.
   .form-group
-    label for="name" Delgation of
-    input.form-control name="name" ng-model="team.name"
-  .form-group
-    label for="participants_count" Total participants
-    input.form-control name="participants_count" ng-model="team.partipants_count"
-  p Number of vehicles made available for the Universiade (see the table below)
-  table
-    tr
-      td from 1 to 25
-      td 1
-    tr
-      td 26 to 100
-      td 2
-    tr
-      td +100
-      td 3
-  p You may blah blah TODO
-  p "Do you need special features?"
-  
-  .form-group.radio
-    p.help-block "Are you used to driving in the mountains?"
-    div.radio
-      label
+    label.control-label.col-sm-6 Are you used to driving in the mountains?
+    .col-sm-6
+      label.radio-inline
         input type="radio" ng-model="team.drive_in_mountains" value="yes"
         | Yes
-    div.radio
-      label
+      label.radio-inline
         input type="radio" ng-model="team.drive_in_mountains" value="no"
         | No
 
-  .form-group.radio
-    p.help-block "Have you ever used snow chains?"
-    div.radio
-      label
+  .form-group
+    label.control-label.col-sm-6 Have you ever used snow chains?
+    .col-sm-6
+      label.radio-inline
         input type="radio" ng-model="team.use_snow_chains" value="yes"
         | Yes
-    div.radio
-      label
+      label.radio-inline
         input type="radio" ng-model="team.use_snow_chains" value="no"
         | No
 
   .form-group
-    label for="other_special_requirement" Other special requirements?
-    textarea.form-control name="other_special_requirement" ng-model="team.other_special_requirements"
+    label.control-label.col-sm-3 for="other_special_requirement" Other special requirements?
+    .col-sm-9
+      textarea.form-control rows=5 name="other_special_requirement" ng-model="team.other_special_requirements"
 
   .form-group
-    p.help-block Blah Blah Blah
-    label
-      input type="checkbox" name="accept_terms_conditions" ng-model="team.accept_terms_conditions"
-      |  I accept
+    label.control-label.col-sm-3 Conditions
+    .col-sm-9
+      textarea.form-control rows=10
+        | • INSURANCE: rca +  damage cover for the driver and passengers
+          • SUPPLIES : When each car is delivered, it will have a full tank of fuel and a prepaid fuel card worth € 50. The car must therefore be returned with a full tank of fuel. If, for any reason, the car is returned without a full tank of fuel, then you will be charged a fine of euro 50, 00. 
+          • AUTHORISED DRIVERS : only those drivers who have applied for accreditation and completed all the forms in mod 2 can drive the car. No car should be given to or driven by non-accredited drivers. There is also an option that will allow MULTI-DRIVERS, which allows someone other than the first driver to drive the car. However, all of these people must complete the form above.
+          • COLLECTION AND DELIVERY : All cars for the Universiade must be picked up and delivered to the headquarters of the Organizing Committee in San Bartolomeo, Trento.
+          • SECURITY DEPOSIT : A security deposit of euro 500 must be paid for each car across one or more credit cards. If one credit card is being used to pay the deposits of 3 cars, then the amount must be equal to € 1,500.00. Please check that this amount will not exceed the maximum usage available for the card. If the deposit has not been paid, then the car will not be delivered. 
 
-  input.btn.btn-primary type="submit" value="Submit"
+      label.control-label
+        input type="checkbox" name="accept_terms_conditions" ng-model="team.accept_terms_conditions" ng-required="true"
+        |  I accept the Conditions.
 
+  .col-sm-9.col-sm-offset-3
+    input.btn.btn-primary type="submit" value="Submit" ng-disabled="!team.accept_terms_conditions"
+    span.alert.alert-success< ng-show="form.submitted" Saved. Redirecting to Step 2.
