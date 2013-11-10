@@ -1,0 +1,56 @@
+p Hello World
+form role="form" ng-init="init()" ng-submit="submit()"
+  .form-group
+    label for="name" Delgation of
+    input.form-control name="name" ng-model="team.name"
+  .form-group
+    label for="participants_count" Total participants
+    input.form-control name="participants_count" ng-model="team.partipants_count"
+  p Number of vehicles made available for the Universiade (see the table below)
+  table
+    tr
+      td from 1 to 25
+      td 1
+    tr
+      td 26 to 100
+      td 2
+    tr
+      td +100
+      td 3
+  p You may blah blah TODO
+  p "Do you need special features?"
+  
+  .form-group.radio
+    p.help-block "Are you used to driving in the mountains?"
+    div.radio
+      label
+        input type="radio" ng-model="team.drive_in_mountains" value="yes"
+        | Yes
+    div.radio
+      label
+        input type="radio" ng-model="team.drive_in_mountains" value="no"
+        | No
+
+  .form-group.radio
+    p.help-block "Have you ever used snow chains?"
+    div.radio
+      label
+        input type="radio" ng-model="team.use_snow_chains" value="yes"
+        | Yes
+    div.radio
+      label
+        input type="radio" ng-model="team.use_snow_chains" value="no"
+        | No
+
+  .form-group
+    label for="other_special_requirement" Other special requirements?
+    textarea.form-control name="other_special_requirement" ng-model="team.other_special_requirements"
+
+  .form-group
+    p.help-block Blah Blah Blah
+    label
+      input type="checkbox" name="accept_terms_conditions" ng-model="team.accept_terms_conditions"
+      |  I accept
+
+  input.btn.btn-primary type="submit" value="Submit"
+

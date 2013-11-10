@@ -1,0 +1,66 @@
+div ng-init="init()"
+  p Drivers Create Update
+  
+  h1 Apply for accrediation for the Universiade car service
+
+  form role="form" ng-submit="submit()"
+    .form-group
+      label
+        input.form-control type="radio" ng-model="driver.type" value="head"
+        | Head driver
+      label
+        input.form-control type="radio" ng-model="driver.type" value="additiona"
+        | Additional driver
+
+    .form-group
+      label for="name" Fullname
+      input.form-control type="text" ng-model="driver.name" name="name"
+    .form-group
+      label for="delegation" Delegation
+      input.form-control type="text" ng-model="driver.delegation" name="delegation"
+    .form-group
+      label for="nationality" Nationality
+      input.form-control type="text" ng-model="driver.nationality" name="nationality"
+    .form-group
+      label for="dob" Date of birth
+      input.form-control type="text" ng-model="driver.dob" name="dob"
+    .form-group
+      label for="place_of_birth" Place of birth (City, Country)
+      input.form-control type="text" ng-model="driver.place_of_birth" name="place_of_birth"
+
+    p Address
+    .form-group
+      label for="street" Street
+      input.form-control type="text" ng-model="driver.street" name="street"
+    .form-group
+      label for="city" City
+      input.form-control type="text" ng-model="driver.city" name="city"
+    .form-group
+      label for="country" Country
+      input.form-control type="text" ng-model="driver.country" name="country"
+    p Contact
+    .form-group
+      label for="phone" Phone
+      input.form-control type="text" ng-model="driver.phone" name="phone"
+    .form-group
+      label for="email" Email
+      input.form-control type="text" ng-model="driver.email" name="email"
+    p Contact in Italy
+    .form-group
+      label for="phone_in_italy" Phone in Italy
+      input.form-control type="text" ng-model="driver.phone_in_italy" name="phone_in_italy"
+    p Arrival and Departure dates
+    .form-group
+      label for="arrival_date" Arrival date
+      input.form-control type="text" ng-model="driver.arrival_date" name="arrival_date"
+    .form-group
+      label for="departure_date" Departure date
+      input.form-control type="text" ng-model="driver.departure_date" name="departure_date"
+    p Required Files
+    p Copy of passport
+    p Copy of national drivers licence
+    p Copy of international drivers licence or european drivers licence
+    / p TODO confirm about credit card details
+
+    input.btn.btn-success type="submit" value="Save"
+

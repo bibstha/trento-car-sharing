@@ -26,4 +26,6 @@ class User
   field :last_sign_in_ip,    :type => String
 
   field :name, :type => String
+
+  has_one :team
 end

@@ -26,6 +26,9 @@ TrentoCarSharing::Application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
+  # Do not mangle name
+  config.assets.js_compressor = Uglifier.new(mangle: false)
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
