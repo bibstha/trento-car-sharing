@@ -11,10 +11,10 @@ window.mainApp = angular.module('mainApp', ['ngRoute', 'ngResource', 'angularFil
       .when('/teams/:teamId/drivers/:driverId', {templateUrl: '/templates/drivers_create_update.html', controller: 'DriversCreateUpdateCtrl'})
 
     $routeProvider
-      .when('/teams/:teamId/car_requests', {templateUrl: '/templates/car_requests_index.html', controller: 'CarRequestsIndexCtrl'})
+      .when('/teams/:teamId/finish', {templateUrl: '/templates/car_requests_index.html', controller: 'CarRequestsIndexCtrl'})
 
     $routeProvider
-      .otherwise({redirectTo: '/'})
+      .otherwise({redirectTo: '/teams/' + teamId})
 ]
 window.mainApp.config ($httpProvider) ->
   authToken = $("meta[name=\"csrf-token\"]").attr("content")

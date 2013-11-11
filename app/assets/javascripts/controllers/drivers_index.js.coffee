@@ -14,6 +14,10 @@ window.DriversIndexCtrl = ($scope, $routeParams, $resource, $location, $rootScop
       driver._id.$oid
     ].join("")
 
+  $scope.step3 = ->
+    $location.url ['/teams/', $routeParams['teamId'], '/finish'].join("")
+
+
   
     
 

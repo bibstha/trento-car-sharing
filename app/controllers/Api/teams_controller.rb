@@ -19,6 +19,13 @@ class Api::TeamsController < ApplicationController
     render json: team
   end
 
+  def finish
+    team = Team.find(params[:id])
+    team.flags[:finish] = true
+    team.save
+    return render json: {status: "ok"}
+  end
+
   private
   def team_params
     return params.permit(:name, :participants_count, :drive_in_mountains, 

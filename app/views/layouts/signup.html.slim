@@ -10,9 +10,12 @@ html ng-app='mainApp'
     = javascript_include_tag "application"
     = csrf_meta_tags
   body
-    / header
-    /   nav.navbar.navbar-default
-    /     .container
+    header
+      nav.navbar.navbar-default
+        .container
+          .text-center
+            h1 Trentino 2013 Car Rental Requst Forms
+            p Some text on what this page is about.
     /       .navbar-header
     /         a.navbar-brand Trentino 2013 Car Rental Request Forms
     /         button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
@@ -24,9 +27,6 @@ html ng-app='mainApp'
     /         = render partial: 'layouts/navigation'
 
     .container
-      .page-header.text-center
-        h1 Trentino 2013 Car Rental Requst Forms
-        p Some text on what this page is about.
       = render partial: 'layouts/messages'
       = yield
     footer

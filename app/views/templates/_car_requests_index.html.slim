@@ -1,6 +1,33 @@
 div ng-init="init()"
-  p Drivers Index
-  a.btn.btn-default href="" ng-click="new()" Add driver
-  div ng-repeat="driver in drivers"
-    | {{driver.name }}
-    button.btn ng-click="edit(driver)" Edit
+  h1 Step 3 - Finish
+  p.lead Congratulations!
+  p
+    | Please make sure you have done this for each driver:
+    ol
+      li Filled in <strong>Participation Count and Number of vehicles</strong> in Step 1
+      li Filled driver name, arrival day and date at Car station, etc in Step 2
+      li Uploaded <strong>International Driver's License</strong> in Step 2
+      li Uploaded <strong>Local Driver's License</strong> in Step 2
+      li Uploaded <strong>Passport Scan</strong> (optional, can be submitted later) in Step 2
+  p
+    | If you confirm all the documents are present, click on 
+    a.btn.btn-success> href="" ng-click="finish()" Submit
+    | to complete your application.
+  p.lead Thank you.
+  p You can reach us at
+  address
+    strong Twitter, Inc.
+    br/
+    | 795 Folsom Ave, Suite 600
+    br/
+    | San Francisco, CA 94107
+    br/
+    abbr title="Phone" P: 
+    | (123) 456-7890
+
+  address
+    strong Full Name
+    br/
+    a href="mailto:car@universiadetrentino.org" car@universiadetrentino.org
+
+  

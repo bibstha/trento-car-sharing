@@ -15,14 +15,13 @@ html ng-app='mainApp'
         .container
           .navbar-header
             a.navbar-brand Trentino 2013 Car Rental Request Forms
-    /         button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
-    /           span.sr-only Toggle navigation
-    /           span.icon-bar
-    /           span.icon-bar
-    /           span.icon-bar
-    /       .collapse.navbar-collapse
-    /         = render partial: 'layouts/navigation'
-
+          ul.nav.navbar-nav.navbar-right
+            li
+              = link_to "Home", root_url
+            li
+              = link_to "Contacts", "/contacts"
+            li
+              = link_to "Sign Out", destroy_user_session_path, method: "delete"
     .container
       .row  
         div.col-md-3 role="complementary"
