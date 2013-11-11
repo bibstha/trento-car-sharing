@@ -7,11 +7,10 @@ div ng-init="init()"
       | to get started.
   div ng-show="drivers.length > 0"
     p.lead
-      | You have added {{drivers.length}} driver(s) information listend below. Click on 
+      | You have added {{drivers.length}} driver(s) information listed below. Click on 
       strong> Edit
       ' button to make changes. Or
-      button.btn.btn-default> ng-click="new()" Add new driver
-      | .
+      button.btn.btn-primary ng-click="new()" Add new driver
     
     table.table.table-striped
       thead
@@ -20,7 +19,10 @@ div ng-init="init()"
           th 
       tbody
         tr ng-repeat="driver in drivers"
-          td() {{ driver.name }}
+          td width="50%" {{ driver.name }}
+          td
+            span< ng-show="driver.type == 'head'" Head driver
+            span< ng-show="driver.type == 'additional'" Additional driver
           td
             button.btn ng-click="edit(driver)" Edit
 

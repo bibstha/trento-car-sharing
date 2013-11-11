@@ -1,0 +1,32 @@
+doctype html
+html ng-app='mainApp'
+  head
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    title #{content_for?(:title) ? yield(:title) : 'Trento Car Sharing'}
+    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Trento Car Sharing'}"
+    -# = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    -# = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    / header
+    /   nav.navbar.navbar-default
+    /     .container
+    /       .navbar-header
+    /         a.navbar-brand Trentino 2013 Car Rental Request Forms
+    /         button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+    /           span.sr-only Toggle navigation
+    /           span.icon-bar
+    /           span.icon-bar
+    /           span.icon-bar
+    /       .collapse.navbar-collapse
+    /         = render partial: 'layouts/navigation'
+
+    .container
+      .page-header.text-center
+        h1 Trentino 2013 Car Rental Requst Forms
+        p Some text on what this page is about.
+      = render partial: 'layouts/messages'
+      = yield
+    footer

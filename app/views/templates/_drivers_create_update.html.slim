@@ -2,7 +2,7 @@ h1 Step 2 - Driver information entry
 div ng-init="init()"
   p.lead In order to drive the cars, every driver must become accredited by filling out the forms below and applying for accreditation. A car will not be given to those who have not completed the necessary forms for accreditation.
 
-  form.css-form.form-horizontal role="form" ng-submit="submit()" name="driver_form"
+  form.css-form.form-horizontal role="form" ng-submit="submit()" name="driver_form" enctype="multipart/form-data"
     .form-group
       label.control-label.col-sm-3 Driver type
       .col-sm-9
@@ -77,12 +77,60 @@ div ng-init="init()"
       label.control-label.col-sm-3 for="departure_date" Departure date
       .col-sm-9
         input.form-control type="text" ng-model="driver.departure_date" name="departure_date"
-    p Required Files
-    p Copy of passport
-    p Copy of national drivers licence
-    p Copy of international drivers licence or european drivers licence
-    / p TODO confirm about credit card details
+    
+    hr/
+    h3 Please upload scanned copies of following documents:
+    ol
+      li International Driver's License
+      li National Driver's License
+      li Passport for Identification
+        
+    input type="file" ng-file-select=""
 
-    input.btn.btn-success type="submit" value="Save"
+    h4 Upload files
+    p Number of files: {{ driver.documents.length + uploader.queue.length }}
+    table.table
+      thead
+        tr
+          th width="50%" Name
+          th Size
+          th Progress
+          th Ok
+          th Actions
+      tbody
+        tr ng-repeat="document in driver.documents"
+          td
+            strong() {{ document }}
+          td
+          td Already Uploaded
+          td
+          td 
+            button.btn.btn-danger.btn-xs ng-click="remove_existing_document(document)" type="button"
+              span.glyphicon.glyphicon-trash
+              | Remove
+        tr ng-repeat="item in uploader.queue"
+          td
+            strong() {{ item.file.name }}
+          td nowrap="" {{ item.file.size/1024/1024|number:2 }}
+          td
+            .progress style="margin-bottom: 0;"
+              .progress-bar ng-style="{ 'width': item.progress + '%' }" role="progressbar"
+          td
+            i.glyphicon.glyphicon-ok ng-show="item.isUploaded"
+          td nowrap=""
+            button.btn.btn-success.btn-xs> ng-click="item.upload()" ng-disabled="item.isUploaded" type="button"
+              span.glyphicon.glyphicon-upload
+              | Upload
+            button.btn.btn-danger.btn-xs ng-click="item.remove()" type="button"
+              span.glyphicon.glyphicon-trash
+              | Remove
+
+    div class="progress" style=""
+      div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"
+    button> type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length"
+      span class="glyphicon glyphicon-upload"
+      | Upload all
+      
+    input.btn.btn-success type="submit" value="Save and continue" ng-disabled="uploader.getNotUploadedItems().length"
 
 

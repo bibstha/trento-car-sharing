@@ -22,11 +22,15 @@ class Api::DriversController < ApplicationController
     return render json: driver
   end
 
+  def file_upload
+    render json: params
+  end
+
   private
   def params_driver
     params[:driver].permit(:type, :name, :delegation, :nationality, :dob, :place_of_birth,
       :street, :city, :country, :phone, :email, :phone_in_italy, 
-      :arrival_date, :departure_date
+      :arrival_date, :departure_date, :documents => []
     )
   end
 end

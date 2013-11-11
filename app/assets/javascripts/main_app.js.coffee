@@ -1,4 +1,4 @@
-window.mainApp = angular.module('mainApp', ['ngRoute', 'ngResource']).config [
+window.mainApp = angular.module('mainApp', ['ngRoute', 'ngResource', 'angularFileUpload']).config [
   '$routeProvider',
   ($routeProvider) ->
     $routeProvider

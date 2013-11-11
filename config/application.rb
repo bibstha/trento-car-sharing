@@ -37,5 +37,10 @@ module TrentoCarSharing
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.to_prepare do
+      Devise::SessionsController.layout proc{ |controller| action_name == 'new' ? "signup"   : "application" }
+      Devise::RegistrationsController.layout proc{ |controller| ['new', 'create', 'update'].include?(action_name)  ? "signup"   : "application" }
+      Devise::PasswordsController.layout proc{ |controller| ['new', 'create', 'update'].include?(action_name)  ? "signup"   : "application" }
+    end
   end
 end

@@ -19,4 +19,7 @@ class Driver
   field :arrival_date, type: String
   field :departure_date, type: String
 
+  # Stores references to uploaded documents
+  field :documents, type: Array, default: []
+
 end

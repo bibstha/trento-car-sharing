@@ -13,4 +13,6 @@ class Team
   field :use_snow_chains, type: Boolean
   field :other_special_requirements, type: String
   field :accept_terms_conditions, type: Boolean
+
+  field :flags, type: Hash, default: {}
 end

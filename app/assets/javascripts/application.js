@@ -17,5 +17,7 @@
 //= require angular
 //= require angular-route
 //= require angular-resource
+//= require es5-shim/es5-shim
+//= require angular-file-upload
 //= require main_app
 //= require_tree .
