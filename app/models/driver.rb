@@ -17,7 +17,9 @@ class Driver
   field :email, type: String
   field :phone_in_italy, type: String
   field :arrival_date, type: String
+  field :arrival_time, type: String
   field :departure_date, type: String
+  field :departure_time, type: String
 
   # Stores references to uploaded documents
   field :documents, type: Array, default: []

@@ -1,8 +1,8 @@
 div ng-init="init()"
   h1 Step 3 - Finish
-  p.lead Congratulations!
+  p.lead Almost done
   p
-    | Please make sure you have done this for each driver:
+    | Please make sure you have entered the data properly.
     ol
       li Filled in <strong>Participation Count and Number of vehicles</strong> in Step 1
       li Filled driver name, arrival day and date at Car station, etc in Step 2
@@ -10,10 +10,22 @@ div ng-init="init()"
       li Uploaded <strong>Local Driver's License</strong> in Step 2
       li Uploaded <strong>Passport Scan</strong> (optional, can be submitted later) in Step 2
   p
-    | If you confirm all the documents are present, click on 
+    | If you confirm that all the documents are present, click on 
     a.btn.btn-success> href="" ng-click="finish()" Submit
     | to complete your application.
   p.lead Thank you.
   = render partial: 'layouts/contact'
 
-  
+  div#myModal class="modal fade"
+    div class="modal-dialog"
+      div class="modal-content"
+        div class="modal-header"
+          button type="button" class="close" data-dismiss="modal" aria-hidden="true" &times;
+          h4 class="modal-title" Congratulations!
+        div class="modal-body"
+          | Your application for Car-Sharing has been received.
+          br/
+          ' We will get back to you as soon as possible. If you have any questions, you can contact us through our
+          = link_to "Contact Page", "/contact"
+        div class="modal-footer"
+          button type="button" class="btn btn-primary" data-dismiss="modal" Close

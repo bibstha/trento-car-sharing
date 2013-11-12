@@ -12,16 +12,12 @@ div ng-init="init()"
         label.radio-inline
           input type="radio" ng-model="driver.type" value="additional"
           | Additional driver
-        p.help-block TODO who is a head driver, who is additional driver?
+        p.help-block Choose Head driver if this person is the main responsible person for the car. Otherwise choose Aditional driver.
 
     .form-group
       label.control-label.col-sm-3 for="name" Fullname
       .col-sm-9
         input.form-control type="text" ng-model="driver.name" name="name" ng-required="true"
-    / .form-group
-    /   label.control-label.col-sm-3 for="delegation" Delegation
-    /   .col-sm-9
-    /     input.form-control type="text" ng-model="driver.delegation" name="delegation"
     .form-group
       label.control-label.col-sm-3 for="nationality" Nationality
       .col-sm-9
@@ -30,6 +26,7 @@ div ng-init="init()"
       label.control-label.col-sm-3 for="dob" Date of birth
       .col-sm-9
         input.form-control type="text" ng-model="driver.dob" name="dob"
+        p.help-block In dd/mm/yyyy Example: 31/01/1990
     .form-group
       label.control-label.col-sm-3 for="place_of_birth" 
         | Place of birth 
@@ -37,10 +34,10 @@ div ng-init="init()"
         | (City, Country)
       .col-sm-9
         input.form-control type="text" ng-model="driver.place_of_birth" name="place_of_birth"
+        p.help-block Example: Trentino, Italy.
 
     .col-sm-9.col-sm-offset-3
       h4 Address information
-      p TODO is this current residential address?
     .form-group
       label.control-label.col-sm-3 for="street" Street
       .col-sm-9
@@ -69,14 +66,23 @@ div ng-init="init()"
         input.form-control type="text" ng-model="driver.phone_in_italy" name="phone_in_italy"
     .col-sm-9.col-sm-offset-3
       h4 Arrival and Departure dates
+      p Enter the date and time when this person is scheduled to pick up the car from <strong>San Bartolameo, Trento</strong>. Not the arrival date in Italy.
     .form-group
       label.control-label.col-sm-3 for="arrival_date" Arrival date
-      .col-sm-9
+      .col-sm-5
         input.form-control type="text" ng-model="driver.arrival_date" name="arrival_date"
+        p.help-block In dd/mm/yyyy. Example: 10/12/2013.
+      .col-sm-4
+        input.form-control type="text" ng-model="driver.arrival_time" name="arrival_time" placeholder="Arrival time"
+        p.help-block Example: 10:30 am.
     .form-group
       label.control-label.col-sm-3 for="departure_date" Departure date
-      .col-sm-9
+      .col-sm-5
         input.form-control type="text" ng-model="driver.departure_date" name="departure_date"
+        p.help-block In dd/mm/yyyy. Example: 10/1/2014.
+      .col-sm-4
+        input.form-control type="text" ng-model="driver.departure_time" name="departure_time" placeholder="Departure time"
+        p.help-block Example: 10:30 am.
     
     hr/
     h3 Please upload scanned copies of following documents:
@@ -105,9 +111,9 @@ div ng-init="init()"
           td Already Uploaded
           td
           td 
-            button.btn.btn-danger.btn-xs ng-click="remove_existing_document(document)" type="button"
-              span.glyphicon.glyphicon-trash
-              | Remove
+            / button.btn.btn-danger.btn-xs ng-click="remove_existing_document(document)" type="button"
+            /   span.glyphicon.glyphicon-trash
+            /   | Remove
         tr ng-repeat="item in uploader.queue"
           td
             strong() {{ item.file.name }}

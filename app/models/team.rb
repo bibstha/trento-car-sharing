@@ -8,7 +8,8 @@ class Team
 
   field :name, type: String
   # field :country, type: String
-  field :participants_count, type: Integer
+  field :participants_count, type: String
+  field :number_of_cars, type: String
   field :drive_in_mountains, type: Boolean
   field :use_snow_chains, type: Boolean
   field :other_special_requirements, type: String
