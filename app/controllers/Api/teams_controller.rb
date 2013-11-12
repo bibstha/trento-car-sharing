@@ -29,6 +29,6 @@ class Api::TeamsController < ApplicationController
   private
   def team_params
     return params.permit(:name, :participants_count, :drive_in_mountains, 
-      :use_snow_chains, :other_special_requirements, :accept_terms_conditions)
+      :use_snow_chains, :other_special_requirements, :accept_terms_conditions, :number_of_cars)
   end
 end

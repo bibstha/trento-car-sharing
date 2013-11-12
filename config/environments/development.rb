@@ -29,5 +29,5 @@ TrentoCarSharing::Application.configure do
   config.action_mailer.perform_deliveries = true
 
   # ActionMailer Host Config
-  config.action_mailer.default_url_options = {:host => "universiad2013.playcamp.co"}
+  config.action_mailer.default_url_options = {:host => "universiad2013.88yaks.com"}
 end

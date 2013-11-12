@@ -4,7 +4,7 @@ p.lead
   strong 18th November 2013
 form.css-form.form-horizontal role="form" ng-init="init()" ng-submit="submit()" name="form"
   .form-group ng-class="{'has-error': form.name.$invalid, 'has-success': !form.name.$invalid}"
-    label.control-label.col-sm-3 for="name" Delgation of
+    label.control-label.col-sm-3 for="name" Delegation of
     .col-sm-9
       input.form-control name="name" ng-model="team.name" placeholder="Delegation of" required=""
       p.help-block The name of your team. Eg: Italy.
@@ -85,5 +85,5 @@ form.css-form.form-horizontal role="form" ng-init="init()" ng-submit="submit()" 
         |  I accept the Conditions.
 
   .col-sm-9.col-sm-offset-3
-    input.btn.btn-success type="submit" value="Submit" ng-disabled="!team.accept_terms_conditions"
+    input.btn.btn-success type="submit" value="Go to Step 2" ng-disabled="!team.accept_terms_conditions"
     span.alert.alert-success< ng-show="form.submitted" Saved. Redirecting to Step 2.
