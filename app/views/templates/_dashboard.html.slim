@@ -34,14 +34,18 @@ form.css-form.form-horizontal role="form" ng-init="init()" ng-submit="submit()" 
             td +100
             td 3
             td 2100 €
-
+          tr
+            td colspan="3" 
+              | For extra cars (more than 3), 
+              ' #{link_to "download this document", "downloads/Application for Accreditation for Car service.docx" }
+              | and email it back to us.
+            
   .form-group ng-class="{'has-error': form.name.$invalid, 'has-success': !form.number_of_cars.$invalid}"
     label.control-label.col-sm-3 for="number_of_cars" Number of cars
     .col-sm-9
       input.form-control name="number_of_cars" ng-model="team.number_of_cars" placeholder="Number of cars required" required=""
       p.help-block
-        | Example: 1, 2 or 3 (Maximum cars provided by Universiad). If you want more cars, please download 
-        = link_to "this document", "downloads/Application for Accreditation for Car service.docx"
+        | Example: 1, 2 or 3
 
 
   .col-sm-9.col-sm-offset-3
@@ -75,13 +79,16 @@ form.css-form.form-horizontal role="form" ng-init="init()" ng-submit="submit()" 
   .form-group
     label.control-label.col-sm-3 Conditions
     .col-sm-9
-      textarea.form-control rows=10
+      textarea.form-control rows=17
         | • INSURANCE: rca +  damage cover for the driver and passengers
-          • SUPPLIES : When each car is delivered, it will have a full tank of fuel and a prepaid fuel card worth € 50. The car must therefore be returned with a full tank of fuel. If, for any reason, the car is returned without a full tank of fuel, then you will be charged a fine of euro 50, 00. 
-          • AUTHORISED DRIVERS : only those drivers who have applied for accreditation and completed all the forms in mod 2 can drive the car. No car should be given to or driven by non-accredited drivers. There is also an option that will allow MULTI-DRIVERS, which allows someone other than the first driver to drive the car. However, all of these people must complete the form above.
+          • SUPPLIES : When each car is delivered, it will have a full tank of fuel and a prepaid fuel card worth € 50. The car must therefore be returned with a full tank of fuel. If, for any reason, the car is returned without a full tank of fuel, then you will be charged a fine of € 50. 
+          • AUTHORISED DRIVERS : only those drivers who have applied for accreditation and completed all the forms in Step 2 can drive the car. No car should be given to or driven by non-accredited drivers. There is also an option that will allow MULTI-DRIVERS, which allows someone other than the first driver to drive the car. However, all of these people must complete the form above.
           • COLLECTION AND DELIVERY : All cars for the Universiade must be picked up and delivered to the headquarters of the Organizing Committee in San Bartolomeo, Trento.
-          • SECURITY DEPOSIT : A security deposit of euro 500 must be paid for each car across one or more credit cards. If one credit card is being used to pay the deposits of 3 cars, then the amount must be equal to € 1,500.00. Please check that this amount will not exceed the maximum usage available for the card. If the deposit has not been paid, then the car will not be delivered. 
-
+          • SECURITY DEPOSIT : A security deposit of € 700 must be paid for each car across one or more credit cards. If one credit card is being used to pay the deposits of 3 cars, then the amount must be equal to € 2,100. Please check that this amount will not exceed the maximum usage available for the card. If the deposit has not been paid, then the car will not be delivered.
+      p
+        | We only accept Visa, MasterCard or JCB cards.
+        br/
+        = image_tag "visa-mastercard-jcb.jpg"
       label.control-label
         input type="checkbox" name="accept_terms_conditions" ng-model="team.accept_terms_conditions" ng-required="true"
         |  I accept the Conditions.
