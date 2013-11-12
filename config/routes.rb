@@ -18,6 +18,7 @@ TrentoCarSharing::Application.routes.draw do
     end
   end
 
+  get "contact" => "home#contact"
   get "dashboard" => "home#dashboard"
   get "templates/:template_name" => "templates#show"
 

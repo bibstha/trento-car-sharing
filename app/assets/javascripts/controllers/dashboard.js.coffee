@@ -7,9 +7,7 @@ window.DashboardCtrl = ($scope, $routeParams, $resource, $location, $rootScope, 
     if not $routeParams["teamId"]?
       $scope.team = new Team()
     else
-      $scope.team = Team.get({teamId: $routeParams['teamId']}, (data) ->
-        console.log data._id.$oid
-      )
+      $scope.team = Team.get({teamId: $routeParams['teamId']})
 
   $scope.submit = ->
     successFn = (data) ->

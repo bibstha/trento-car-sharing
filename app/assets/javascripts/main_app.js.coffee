@@ -13,8 +13,8 @@ window.mainApp = angular.module('mainApp', ['ngRoute', 'ngResource', 'angularFil
     $routeProvider
       .when('/teams/:teamId/finish', {templateUrl: '/templates/car_requests_index.html', controller: 'CarRequestsIndexCtrl'})
 
-    $routeProvider
-      .otherwise({redirectTo: '/teams/' + teamId})
+    if teamId?
+      $routeProvider.otherwise({redirectTo: '/teams/' + teamId})
 ]
 window.mainApp.config ($httpProvider) ->
   authToken = $("meta[name=\"csrf-token\"]").attr("content")

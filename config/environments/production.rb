@@ -80,4 +80,7 @@ TrentoCarSharing::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # ActionMailer Host Config
+  config.action_mailer.default_url_options = {:host => "universiad2013.playcamp.co"}
 end

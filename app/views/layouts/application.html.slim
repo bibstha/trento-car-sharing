@@ -14,21 +14,22 @@ html ng-app='mainApp'
       nav.navbar.navbar-default
         .container
           .navbar-header
-            a.navbar-brand Trentino 2013 Car Rental Request Forms
+            a.navbar-brand href="/" Trentino 2013 Winter Universiade Car Rental Request Form
           ul.nav.navbar-nav.navbar-right
             li
               = link_to "Home", root_url
             li
-              = link_to "Contacts", "/contacts"
+              = link_to "Contact", "/contact"
             li
               = link_to "Sign Out", destroy_user_session_path, method: "delete"
     .container
-      .row  
-        div.col-md-3 role="complementary"
-          div ng-controller="SidebarsCtrl" ng-init="init()"
-            ul
-              li ng-repeat="link in links"
-                a href="" ng-click="click(link)" {{link.name}}
+      .row 
+        div.col-md-3 ng-controller="SidebarsCtrl" ng-init="init()" role="complementary" ng-cloak="" ng-show="show_sidebar()"
+          div.list-group
+            a.list-group-item ng-repeat="link in links" href="" ng-click="click(link)" ng-class="{'active':link == current_link}"
+              h4.list-group-item-heading() {{link.name}}
+              p.list-group-item-text() {{link.description}}
+
         div.col-md-9 role="main"
           = render partial: 'layouts/messages'
           = yield

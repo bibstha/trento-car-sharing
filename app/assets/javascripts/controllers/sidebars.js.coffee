@@ -1,10 +1,13 @@
 window.SidebarsCtrl = ($scope, $routeParams, $resource, $location, $rootScope) ->
   $scope.init = ->
     $scope.links = [
-      {id: 'team', name: 'Step 1'},
-      {id: 'driver', name: 'Step 2'},
-      {id: 'finish', name: 'Step 3'},
+      {id: 'team', name: 'Step 1', description: 'Team information'},
+      {id: 'driver', name: 'Step 2', description: 'Individual drivers information'},
+      {id: 'finish', name: 'Step 3', description: 'Finish'},
     ]
+
+  $scope.show_sidebar = ->
+    teamId?
 
   $scope.click = (link) ->
     if (link.id == 'team')

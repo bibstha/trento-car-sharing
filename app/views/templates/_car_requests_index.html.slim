@@ -14,20 +14,6 @@ div ng-init="init()"
     a.btn.btn-success> href="" ng-click="finish()" Submit
     | to complete your application.
   p.lead Thank you.
-  p You can reach us at
-  address
-    strong Twitter, Inc.
-    br/
-    | 795 Folsom Ave, Suite 600
-    br/
-    | San Francisco, CA 94107
-    br/
-    abbr title="Phone" P: 
-    | (123) 456-7890
-
-  address
-    strong Full Name
-    br/
-    a href="mailto:car@universiadetrentino.org" car@universiadetrentino.org
+  = render partial: 'layouts/contact'
 
   

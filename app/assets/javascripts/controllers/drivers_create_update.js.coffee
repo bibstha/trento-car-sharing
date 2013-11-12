@@ -12,26 +12,25 @@ window.DriversCreateUpdateCtrl = ($scope, $routeParams, $resource, $location, $f
     ],
     filters: [
       (item) ->
-        console.log('filter1');
+        # console.log('filter1');
         return true;
     ]
   });
 
   uploader.bind('afteraddingfile', (event, item) ->
-    console.log('After adding a file', item);
+    # console.log('After adding a file', item);
   );
 
   uploader.bind('success', (event, xhr, item) ->
-    console.log('Success: ' + xhr.response, item);
+    # console.log('Success: ' + xhr.response, item);
     if !$scope.driver.documents?
       $scope.driver.documents = []
     
     $scope.driver.documents.push(angular.fromJson(xhr.response).name.path)
-    console.log $scope.driver
   );
 
   uploader.bind('complete', (event, xhr, item) ->
-    console.log('Complete: ' + xhr.response, item);
+    # console.log('Complete: ' + xhr.response, item);
   );
 
   $scope.init = ->
