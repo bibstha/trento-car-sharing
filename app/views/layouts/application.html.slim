@@ -1,8 +1,11 @@
 doctype html
-html ng-app='mainApp'
+html ng-app='mainApp' id="ng-app"
   head
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     title #{content_for?(:title) ? yield(:title) : 'Trento Car Sharing'}
+    /[if lte IE 8]
+      = javascript_include_tag "json2/json2.js"
+    /asdf
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Trento Car Sharing'}"
     -# = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     -# = javascript_include_tag "application", "data-turbolinks-track" => true

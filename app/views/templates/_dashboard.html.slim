@@ -13,14 +13,14 @@ form.css-form.form-horizontal role="form" ng-init="init()" ng-submit="submit()" 
     label.control-label.col-sm-3 for="participants_count" Total participants
     .col-sm-9
       input.form-control name="participants_count" ng-model="team.participants_count" required=""
-      p.help-block Eg: 5 or 10 or 20-30, etc. 
-      p We use this information for estimation purposes. Number of vehicles provided to you depends upon total participants. You will have to provide a credit card with a credit of given amount when picking up the car.
+      p.help-block Example: 5 or 10 or 20 etc. 
+      p Number of vehicles provided to you depends upon total participants. You will have to provide a credit card with a credit of given amount when picking up the car.
       table.table.table-striped
         thead
           tr
-            th width="40%" Number of participants
-            th width="40%" Number of dedicated vehicles
-            th Security deposit
+            th width="30%" Number of participants
+            th width="30%" Number of dedicated vehicles
+            th Security deposit when picking up the car
         tbody
           tr
             td from 1 to 25
@@ -39,7 +39,7 @@ form.css-form.form-horizontal role="form" ng-init="init()" ng-submit="submit()" 
     label.control-label.col-sm-3 for="number_of_cars" Number of cars
     .col-sm-9
       input.form-control name="number_of_cars" ng-model="team.number_of_cars" placeholder="Number of cars required" required=""
-      p.help-block 1, 2 or 3 (Max).
+      p.help-block Example: 1, 2 or 3 (Maximum cars provided by Universiad). If you want more cars, please download this document.
 
 
   .col-sm-9.col-sm-offset-3
