@@ -18,6 +18,10 @@ TrentoCarSharing::Application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :teams
+  end
+
   get "contact" => "home#contact"
   get "dashboard" => "home#dashboard"
   get "templates/:template_name" => "templates#show"

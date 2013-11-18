@@ -1,0 +1,80 @@
+.row
+  .col-md-5
+    p
+      ' Delegation of
+      span.user-input-value #{@team.name}
+    p
+      ' Number of participants:
+      span.user-input-value #{@team.participants_count}
+    p
+      ' Number of vehicles requested
+      span.user-input-value #{@team.number_of_cars}
+
+    table.table.table-striped
+      tbody
+        tr
+          td Are you used to driving in the mountains?
+          td.user-input-value #{@team.drive_in_mountains}
+        tr
+          td Have you ever used snow chains?
+          td.user-input-value #{@team.use_snow_chains}
+
+    p
+      ' Other special requirements
+      - if @team.other_special_requirements
+        div.user-input-value #{@team.other_special_requirements}
+      - else
+        span.user-input-value NA
+    p
+      ' Accepted terms and conditions
+      span.user-input-value #{@team.accept_terms_conditions}
+
+  .col-md-7
+    h2#driver-list Driver List
+
+    - @team.drivers.each do |driver|
+      h3
+        ' #{driver.name}
+        small
+          ' #{driver.type}
+          ' driver
+      p 
+        ' Nationality
+        span.user-input-value #{driver.nationality}
+      p 
+        ' Date of birth
+        span.user-input-value #{driver.dob}
+      p 
+        ' Place of birth
+        span.user-input-value #{driver.place_of_birth}
+      div Address
+      address.user-input-value
+        | #{driver.street}
+        br/
+        | #{driver.city}, #{driver.country}
+        br/
+        abbr title="Phone" P: 
+        | #{driver.phone}
+      p 
+        ' Email
+        span.user-input-value #{driver.email}
+      p 
+        ' Phone number in Italy
+        span.user-input-value #{driver.phone_in_italy}
+      p 
+        ' Arrival Date time
+        span.user-input-value> #{driver.arrival_date}
+        span.user-input-value #{driver.arrival_time}
+      p 
+        ' Departure Date and Time
+        span.user-input-value> #{driver.departure_date}
+        span.user-input-value #{driver.departure_time}
+
+      p 
+        ' Files
+        ul
+          - driver.documents.each do |document|
+            li
+              = link_to document, "/uploads/#{document}"
+
+      hr/
