@@ -38,6 +38,8 @@
         small
           ' #{driver.type}
           ' driver
+        small
+          = link_to "Edit", "/#/teams/#{@team.id}/drivers/#{driver.id}"
       p 
         ' Nationality
         span.user-input-value #{driver.nationality}
