@@ -14,6 +14,10 @@ class Admin::TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
+    respond_to do |format|
+      @team = Team.find(params[:id])
+      format.html {  }
+      format.zip { send_file @team.zip_file }
+    end
   end
 end

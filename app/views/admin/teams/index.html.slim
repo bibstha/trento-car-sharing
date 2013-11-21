@@ -22,4 +22,5 @@ table.table.table-striped
           td #{team.use_snow_chains}
           td #{team.drivers.count}
           td #{link_to "Detail", admin_team_path(id: team.id), class: "btn btn-primary btn-sm"}
+          td #{link_to "Download files", admin_team_path(id: team.id, format: "zip"), class: "btn btn-primary btn-sm"}
 

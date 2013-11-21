@@ -47,4 +47,27 @@ class Team
       end
     end
   end
+
+  def zip_file
+    unless self.name
+      return nil
+    end
+
+    require 'zip'
+
+    zipfile_name = Rails.root.join('public', 'system', 'uploads', self.name.gsub(" ", '') + ".zip")
+    if File.exist?zipfile_name
+      File.delete zipfile_name
+    end
+    Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+      self.drivers.order_by(:name => 1).each do |driver|
+        driver.documents.each do |doc|
+          uploaded_file = Rails.root.join('public', 'system', 'uploads', doc)
+          zipfile.add("#{self.name}/#{driver.name}/#{doc}", uploaded_file) if File.exist? uploaded_file
+        end
+      end
+    end
+
+    zipfile_name
+  end
 end
