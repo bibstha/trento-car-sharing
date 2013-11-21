@@ -20,6 +20,7 @@ TrentoCarSharing::Application.routes.draw do
 
   namespace :admin do
     resources :teams
+    get 'drivers' => 'teams#drivers_index'
   end
 
   get "contact" => "home#contact"
